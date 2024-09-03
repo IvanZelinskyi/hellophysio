@@ -1,0 +1,251 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Unbounded:wght@200..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --blue: #c5fcfc;
+  --bg: #121315;
+  --textColor: #e0eeee;
+  --font: "Fira Sans", sans-serif;
+  --titleFont: "Unbounded", sans-serif;
+  --selectionColor: #a9e4a3;
+  --green: #d7fc01;
+}
+::selection {
+  color: var(--green);
+  background: transparent;
+}
+body {
+  background-color: var(--bg);
+}
+main {
+  width: 88%;
+  margin: 0 auto;
+  position: relative;
+}
+.header-overlay {
+  position: absolute;
+  z-index: -1;
+  background: var(--bg);
+  width: 100%;
+  height: 100%;
+}
+header {
+  position: fixed;
+  height: 8vh;
+  width: 88%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 9999;
+}
+header img {
+  width: 200px;
+  margin-left: 40px;
+  /* margin-top: px; */
+}
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  z-index: 11;
+  /* overflow: hidden; */
+}
+.hero-content {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+.hero-primary-text {
+  text-transform: uppercase;
+  color: var(--textColor);
+  font-size: 2rem;
+  text-wrap: nowrap;
+  line-height: 55px;
+  font-family: var(--titleFont);
+  letter-spacing: -2px;
+}
+.hero-primary-text span {
+  color: var(--green);
+}
+.hero-secondary-text {
+  font-family: var(--font);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: #e0eeeee3;
+  margin-top: 20px;
+  font-weight: 400;
+}
+
+.hero-arrow {
+  margin-top: 40px;
+  color: var(--textColor);
+  font-size: 1.6rem;
+}
+.hero-arrow span {
+  cursor: pointer;
+}
+
+.hero-bottom {
+  height: 14.2vh;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font);
+}
+.hero-bottom span {
+  border: 1px solid var(--green);
+  padding: 1rem;
+  border-radius: 9999px;
+  color: var(--green);
+  cursor: pointer;
+  font-size: 1rem;
+}
+.hero-socials {
+  display: flex;
+  width: 17%;
+  justify-content: space-between;
+}
+
+.video-section {
+  position: relative;
+  width: 100%;
+  min-height: 440vh;
+  /* height: 250vh; */
+}
+.video-container {
+  display: block;
+  margin: 0 auto;
+  position: sticky;
+  top: 3vh;
+  width: 100%;
+}
+.video-container-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.video-section video {
+  width: 100%;
+  height: 94vh;
+  object-fit: cover;
+}
+.video-text {
+  position: absolute;
+  width: 100%;
+  z-index: 55;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font);
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  color: var(--textColor);
+  overflow: hidden;
+}
+.video-text:nth-child(1) {
+  top: 10vh;
+  left: 4%;
+}
+.video-text:nth-child(2) {
+  top: 38vh;
+  left: 4%;
+}
+.video-text:nth-child(3) {
+  top: 65vh;
+  left: 4%;
+}
+.video-text .title {
+  font-size: 6rem;
+  font-weight: 400;
+}
+.video-breakpoints-container {
+  position: absolute;
+  visibility: hidden;
+  /* opacity: 0; */
+  display: flex;
+  top: 110vh;
+  z-index: 90;
+  flex-direction: column;
+  /* align-items: center; */
+  /* justify-content: center; */
+  background: orange;
+  overflow: hidden;
+}
+.video-breakpoints-container div {
+  margin-top: 100vh;
+}
+.video-breakpoints-container div:first-child {
+  margin-top: 0;
+}
+
+.scroll-icon {
+  position: absolute;
+  right: 1%;
+  top: 3%;
+  color: white;
+  font-size: 2rem;
+  z-index: 999;
+}
+
+.video-overlay {
+  position: fixed;
+  top: 0;
+  left: 6%;
+  top: 3vh;
+  border-radius: 15px;
+  width: 88%;
+  height: 94vh;
+  background-color: rgba(0, 0, 0, 0.541);
+  z-index: 54;
+}
+
+/* hamburger  */
+
+.ham {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 400ms;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.line {
+  fill: none;
+  transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+  stroke: var(--green);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.ham3 .top {
+  stroke-dasharray: 40 130;
+}
+.ham3 .middle {
+  stroke-dasharray: 40 140;
+}
+.ham3 .bottom {
+  stroke-dasharray: 40 205;
+}
+.ham3.active .top {
+  stroke-dasharray: 75 130;
+  stroke-dashoffset: -63px;
+}
+.ham3.active .middle {
+  stroke-dashoffset: -102px;
+}
+.ham3.active .bottom {
+  stroke-dasharray: 110 205;
+  stroke-dashoffset: -86px;
+}
