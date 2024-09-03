@@ -1,7 +1,12 @@
 import React from "react";
 import { PiArrowCircleDownLight } from "react-icons/pi";
 import MagneticElement from "../components/MagneticElement";
+import useWindowDimensions from "../useWindowDimensions";
+import { CiInstagram } from "react-icons/ci";
+import { PiTelegramLogoThin } from "react-icons/pi";
+
 const Hero = ({ scrollToVideoRef }) => {
+  let { width } = useWindowDimensions();
   return (
     <div className="hero">
       <div className="hero-content">
@@ -17,11 +22,9 @@ const Hero = ({ scrollToVideoRef }) => {
         {/* SECONDARY TEXT  */}
         <div className="hero-secondary-text">
           <span>
-            Моя мета – допомогти вам відновити здоров'я і впевненість у русі.{" "}
-            <br />Я пропоную співпрацю як онлайн, так і офлайн у моему центрi
-            фiзичноi терапii. <br />
-            Запишіться на консультацію, і ми разом розпочнемо шлях до вашого
-            відновлення!
+            Моя ціль – ваше відновлення. <br />
+            Пропоную онлайн і офлайн сесії в центрі. <br />
+            Почнімо відновлення разом – запишіться на консультацію!
           </span>
         </div>
         <div
@@ -30,11 +33,33 @@ const Hero = ({ scrollToVideoRef }) => {
             scrollToVideoRef.current.scrollIntoView({ behavior: "smooth" })
           }
         >
-          <MagneticElement text={<PiArrowCircleDownLight />} />
+          {width > 768 ? (
+            <MagneticElement text={<PiArrowCircleDownLight />} />
+          ) : (
+            <span>
+              <PiArrowCircleDownLight />
+            </span>
+          )}
         </div>
         <div className="hero-bottom">
-          <MagneticElement text={"Instagram"} />
-          <MagneticElement text={"Telegram"} />
+          {width > 768 ? (
+            <MagneticElement text={"Instagram"} />
+          ) : width > 500 ? (
+            <span>Instagram</span>
+          ) : (
+            <span>
+              <CiInstagram className="hero-socials-icon" />
+            </span>
+          )}
+          {width > 768 ? (
+            <MagneticElement text={"Telegram"} />
+          ) : width > 500 ? (
+            <span>Telegram</span>
+          ) : (
+            <span>
+              <PiTelegramLogoThin className="hero-socials-icon" />
+            </span>
+          )}
         </div>
         {/* ARROW DOWN  */}
       </div>

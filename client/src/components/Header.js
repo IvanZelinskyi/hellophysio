@@ -9,25 +9,27 @@ const Header = ({ scrollDirection }) => {
       <motion.div
         className="header-overlay"
         initial={{ y: -10 }}
-        animate={{ y: scrollDirection === "up" ? 0 : -70 }}
-        transition={{ duration: 1, ease: easeInOut }}
+        animate={{ y: !scrollDirection || scrollDirection === "up" ? 0 : -70 }}
+        transition={{ duration: 0.4, ease: easeInOut }}
       ></motion.div>
       <motion.img
         src={logo}
         alt="logo"
         initial={{ scale: 0, opacity: 0 }}
-        animate={{
-          scale: scrollDirection === "up" ? 1 : 0,
-          opacity: scrollDirection === "up" ? 1 : 0,
-        }}
+        animate={
+          scrollDirection === "up" || !scrollDirection
+            ? { scale: 1, opacity: 1 }
+            : ""
+        }
         transition={{ duration: 0.5, type: "spring" }}
       />
       <motion.div
         initial={{ scale: 0, opacity: 0 }}
-        animate={{
-          scale: scrollDirection === "up" ? 1 : 0,
-          opacity: scrollDirection === "up" ? 1 : 0,
-        }}
+        animate={
+          scrollDirection === "up" || !scrollDirection
+            ? { scale: 1, opacity: 1 }
+            : ""
+        }
         transition={{ duration: 0.5, type: "spring" }}
       >
         <svg

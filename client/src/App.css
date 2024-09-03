@@ -27,6 +27,8 @@ main {
 }
 .header-overlay {
   position: absolute;
+  display: block;
+  margin: 0 auto;
   z-index: -1;
   background: var(--bg);
   width: 100%;
@@ -43,8 +45,6 @@ header {
 }
 header img {
   width: 200px;
-  margin-left: 40px;
-  /* margin-top: px; */
 }
 .hero {
   position: relative;
@@ -62,10 +62,15 @@ header img {
   flex-direction: column;
   text-align: center;
 }
+.hero-primary-text h1:first-child {
+  font-size: 5rem;
+}
+.hero-primary-text h1:nth-child(2) {
+  font-size: 2.95rem;
+}
 .hero-primary-text {
   text-transform: uppercase;
   color: var(--textColor);
-  font-size: 2rem;
   text-wrap: nowrap;
   line-height: 55px;
   font-family: var(--titleFont);
@@ -77,12 +82,11 @@ header img {
 .hero-secondary-text {
   font-family: var(--font);
   text-transform: uppercase;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   color: #e0eeeee3;
-  margin-top: 20px;
+  margin-top: 15px;
   font-weight: 400;
 }
-
 .hero-arrow {
   margin-top: 40px;
   color: var(--textColor);
@@ -110,6 +114,9 @@ header img {
   color: var(--green);
   cursor: pointer;
   font-size: 1rem;
+}
+.hero-socials-icon {
+  font-size: 1.8rem;
 }
 .hero-socials {
   display: flex;
@@ -248,4 +255,91 @@ header img {
 .ham3.active .bottom {
   stroke-dasharray: 110 205;
   stroke-dashoffset: -86px;
+}
+/* media queries  */
+@media (max-width: 860px) {
+  .hero-primary-text h1:first-child {
+    font-size: 4.5rem;
+  }
+  .hero-primary-text h1:nth-child(2) {
+    font-size: 2.66rem;
+  }
+  .hero-primary-text {
+    line-height: 50px;
+  }
+  .hero-secondary-text {
+    font-size: 0.92rem;
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    width: 96%;
+  }
+  header {
+    width: 96%;
+  }
+}
+
+@media (max-width: 712px) {
+  .hero-primary-text h1:first-child {
+    font-size: 4rem;
+  }
+  .hero-primary-text h1:nth-child(2) {
+    font-size: 2.36rem;
+  }
+  .hero-primary-text {
+    line-height: 45px;
+  }
+}
+@media (max-width: 600px) {
+  .hero-primary-text h1:first-child {
+    font-size: 3.5rem;
+  }
+  .hero-primary-text h1:nth-child(2) {
+    font-size: 2.08rem;
+  }
+  .hero-primary-text {
+    line-height: 40px;
+  }
+}
+@media (max-width: 500px) {
+  .hero-primary-text h1:first-child {
+    font-size: 3rem;
+  }
+  .hero-primary-text h1:nth-child(2) {
+    font-size: 1.79rem;
+  }
+  .hero-primary-text {
+    line-height: 34px;
+  }
+  .hero-secondary-text {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 440px) {
+  .hero-primary-text h1:first-child {
+    font-size: 2.8rem;
+  }
+  .hero-primary-text h1:nth-child(2) {
+    font-size: 1.67rem;
+  }
+  .hero-primary-text {
+    line-height: 30px;
+  }
+}
+
+@media (max-width: 395px) {
+  .hero-primary-text h1:first-child {
+    font-size: 2.6rem;
+  }
+  .hero-primary-text h1:nth-child(2) {
+    font-size: 1.55rem;
+  }
+  .hero-secondary-text {
+    font-size: 0.9rem;
+  }
+  .hero-primary-text {
+    line-height: 30px;
+  }
 }
