@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import logo from "../assets/logo.png";
 import { easeInOut, motion } from "framer-motion";
-const Header = ({ scrollDirection }) => {
-  const [burgerIsOpen, setBurgerIsOpen] = useState(false);
+const Header = ({ scrollDirection, menuIsActive, setMenuIsActive }) => {
+  // const triggerMenu = () => {
+  //   if(menuIsActive )
+  // }
 
   return (
     <header>
@@ -33,10 +35,10 @@ const Header = ({ scrollDirection }) => {
         transition={{ duration: 0.5, type: "spring" }}
       >
         <svg
-          className={`ham ham3 ${burgerIsOpen ? "active" : ""}`}
+          className={`ham ham3 ${menuIsActive ? "active" : ""}`}
           viewBox="0 0 100 100"
           width="80"
-          onClick={() => setBurgerIsOpen(!burgerIsOpen)}
+          onClick={() => setMenuIsActive(!menuIsActive)}
         >
           <path
             className="line top"

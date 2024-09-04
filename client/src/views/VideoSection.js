@@ -1,23 +1,49 @@
 import React, { useRef, useState, useEffect } from "react";
-import video from "../assets/video3.mp4";
+import video from "../assets/video2.mp4";
 import {
   motion,
   useTransform,
   useScroll,
   useInView,
   easeInOut,
-  AnimatePresence,
 } from "framer-motion";
 import { CgScrollV } from "react-icons/cg";
+import useWindowDimensions from "../useWindowDimensions";
 
 const VideoSection = ({ heroScrollProgress, scrollToVideoRef }) => {
+  let { width } = useWindowDimensions();
   const videoSectionRef = useRef(null);
+  const getScale = (type) => {
+    let temp = "";
+    if (type === "scale" && width > 900) {
+      temp = "0.17";
+    }
+    if (type === "scale" && width < 900) {
+      temp = "0.24";
+    }
+    if (type === "radius" && width > 900) {
+      temp = "999px";
+    }
+    if (type === "radius" && width < 900) {
+      temp = "45px";
+    }
+    return temp;
+  };
   const { scrollYProgress: videoSectionScrollProgress } = useScroll({
     target: videoSectionRef,
     offset: ["start start", "end end"],
   });
-  const scale = useTransform(heroScrollProgress, [0, 0.2], ["0.17", "1"]);
-  const radius = useTransform(heroScrollProgress, [0, 0.2], ["999px", "15px"]);
+  const scale = useTransform(
+    heroScrollProgress,
+    [0, 0.2],
+    [getScale("scale"), "1"]
+  );
+  const radius = useTransform(
+    heroScrollProgress,
+    [0, 0.2],
+    [getScale("radius"), "15px"]
+    // [width > 900 ? "999px" : "45px", "15px"]
+  );
   const translateIcon = useTransform(
     videoSectionScrollProgress,
     [0, 1],
@@ -86,7 +112,7 @@ const VideoSection = ({ heroScrollProgress, scrollToVideoRef }) => {
               animate={triggerFirstText ? { opacity: 1, y: 0 } : ""}
               transition={{ duration: 0.3, ease: easeInOut, delay: 0.1 }}
               exit={{ delay: 0 }}
-              style={{ translateX: 40 }}
+              style={{ translateX: 10 }}
             >
               щоб допомогти вам відновити рухові функції
             </motion.span>
@@ -95,7 +121,7 @@ const VideoSection = ({ heroScrollProgress, scrollToVideoRef }) => {
               animate={triggerFirstText ? { opacity: 1, y: 0 } : ""}
               transition={{ duration: 0.3, ease: easeInOut, delay: 0.2 }}
               exit={{ delay: 0 }}
-              style={{ translateX: 60 }}
+              style={{ translateX: 20 }}
             >
               та повернути активність у ваше життя.
             </motion.span>
@@ -108,7 +134,7 @@ const VideoSection = ({ heroScrollProgress, scrollToVideoRef }) => {
               animate={triggerSecondText ? { opacity: 1, y: 0 } : ""}
               transition={{ duration: 0.3, ease: easeInOut }}
             >
-              індивідуальний підхід
+              індивідуальний {width < 550 ? <br /> : ""} підхід
             </motion.h2>
             <motion.span
               initial={{ opacity: 0, y: 20 }}
@@ -118,25 +144,67 @@ const VideoSection = ({ heroScrollProgress, scrollToVideoRef }) => {
             >
               увага до кожної деталі
             </motion.span>
-            <motion.span
-              initial={{ opacity: 0, y: 20 }}
-              animate={triggerSecondText ? { opacity: 1, y: 0 } : ""}
-              transition={{ duration: 0.3, ease: easeInOut, delay: 0.1 }}
-              style={{ translateX: 40 }}
-            >
-              що б створити унікальні умови для досягнення ваших цілей.
-            </motion.span>
+            {width > 950 ? (
+              <motion.span
+                initial={{ opacity: 0, y: 20 }}
+                animate={triggerSecondText ? { opacity: 1, y: 0 } : ""}
+                transition={{ duration: 0.3, ease: easeInOut, delay: 0.1 }}
+                style={{ translateX: 40 }}
+              >
+                що б створити унікальні умови для досягнення ваших цілей.
+              </motion.span>
+            ) : (
+              <>
+                <motion.span
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={triggerSecondText ? { opacity: 1, y: 0 } : ""}
+                  transition={{ duration: 0.3, ease: easeInOut, delay: 0.1 }}
+                  style={{ translateX: 40 }}
+                >
+                  що б створити унікальні умови
+                </motion.span>
+                <motion.span
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={triggerSecondText ? { opacity: 1, y: 0 } : ""}
+                  transition={{ duration: 0.3, ease: easeInOut, delay: 0.2 }}
+                  style={{ translateX: 25 }}
+                >
+                  для досягнення ваших цілей.
+                </motion.span>
+              </>
+            )}
           </div>
           {/* TEXT 3 */}
           <div className="video-text">
-            <motion.h2
-              className="title"
-              initial={{ opacity: 0, y: -20 }}
-              animate={triggerThirdText ? { opacity: 1, y: 0 } : ""}
-              transition={{ duration: 0.3, ease: easeInOut }}
-            >
-              площа Віри Холодної, 1
-            </motion.h2>
+            {width > 670 ? (
+              <motion.h2
+                className="title"
+                initial={{ opacity: 0, y: -20 }}
+                animate={triggerThirdText ? { opacity: 1, y: 0 } : ""}
+                transition={{ duration: 0.3, ease: easeInOut }}
+              >
+                площа Віри Холодної, 1
+              </motion.h2>
+            ) : (
+              <>
+                <motion.h2
+                  className="title"
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={triggerThirdText ? { opacity: 1, y: 0 } : ""}
+                  transition={{ duration: 0.3, ease: easeInOut }}
+                >
+                  площа
+                </motion.h2>
+                <motion.h2
+                  className="title"
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={triggerThirdText ? { opacity: 1, y: 0 } : ""}
+                  transition={{ duration: 0.3, ease: easeInOut, delay: 0.1 }}
+                >
+                  Віри Холодної, 1
+                </motion.h2>
+              </>
+            )}
             <motion.span
               initial={{ opacity: 0, y: 20 }}
               animate={triggerThirdText ? { opacity: 1, y: 0 } : ""}

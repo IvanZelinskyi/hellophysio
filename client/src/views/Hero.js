@@ -1,10 +1,12 @@
+"use client";
 import React from "react";
 import { PiArrowCircleDownLight } from "react-icons/pi";
 import MagneticElement from "../components/MagneticElement";
 import useWindowDimensions from "../useWindowDimensions";
 import { CiInstagram } from "react-icons/ci";
 import { PiTelegramLogoThin } from "react-icons/pi";
-
+import { motion } from "framer-motion";
+import useMousePosition from "../useMousePosition";
 const Hero = ({ scrollToVideoRef }) => {
   let { width } = useWindowDimensions();
   return (
@@ -52,7 +54,7 @@ const Hero = ({ scrollToVideoRef }) => {
             </span>
           )}
           {width > 768 ? (
-            <MagneticElement text={"Telegram"} />
+            <MagneticElement text={"Консультацiя"} />
           ) : width > 500 ? (
             <span>Telegram</span>
           ) : (
